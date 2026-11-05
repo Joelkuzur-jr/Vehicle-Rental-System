@@ -1,0 +1,45 @@
+flowchart TD
+    L[Login / Register] --> R{User role}
+    R -->|Administrator| A[Admin Dashboard]
+    R -->|Rental Staff| S[Staff Dashboard]
+    R -->|Customer| C[Customer Dashboard]
+
+    A --> A1[Users and Roles]
+    A --> A2[Vehicles and Categories]
+    A --> A3[Customers]
+    A --> A4[Rentals]
+    A --> A5[Returns]
+    A --> A6[Payments]
+    A --> A7[Reports and Settings]
+
+    S --> S1[Customers]
+    S --> S2[Vehicles]
+    S --> S3[Create and Manage Rentals]
+    S --> S4[Process Returns]
+    S --> S5[Record Payments]
+    S --> S6[Reports]
+
+    C --> C1[Browse Available Vehicles]
+    C1 --> C2[View Vehicle Details]
+    C2 --> C3[Request Rental]
+    C --> C4[My Rentals and Rental History]
+    C --> C5[Payment History]
+    C --> C6[Profile]
+
+    A1 --> X[Logout]
+    A2 --> X
+    A3 --> X
+    A4 --> X
+    A5 --> X
+    A6 --> X
+    A7 --> X
+    S1 --> X
+    S2 --> X
+    S3 --> X
+    S4 --> X
+    S5 --> X
+    S6 --> X
+    C3 --> X
+    C4 --> X
+    C5 --> X
+    C6 --> X

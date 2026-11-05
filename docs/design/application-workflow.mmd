@@ -1,0 +1,17 @@
+flowchart TD
+    A[Customer browses available vehicles] --> B[Select vehicle and rental dates]
+    B --> C[Submit rental request]
+    C --> D[Staff reviews request]
+    D --> E{Vehicle available for dates?}
+    E -->|No| F[Reject request / suggest another vehicle]
+    F --> A
+    E -->|Yes| G[Confirm booking]
+    G --> H[Create rental record]
+    H --> I[Set vehicle status to RENTED when rental begins]
+    I --> J[Customer returns vehicle]
+    J --> K[Staff inspects vehicle]
+    K --> M[Create return record]
+    M --> N[Calculate final bill and record payment]
+    N --> O[Mark rental COMPLETED]
+    O --> P[Set vehicle status to AVAILABLE if serviceable]
+    P --> Q[Update dashboard and reports]

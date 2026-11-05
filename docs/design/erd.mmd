@@ -1,0 +1,68 @@
+erDiagram
+    USERS ||--o{ RENTALS : manages
+    CUSTOMERS ||--o{ RENTALS : creates
+    VEHICLE_CATEGORIES ||--o{ VEHICLES : contains
+    VEHICLES ||--o{ RENTALS : appears_in
+    RENTALS ||--o| RETURNS : has
+    RENTALS ||--o| PAYMENTS : generates
+
+    USERS {
+        ObjectId _id PK
+        string fullName
+        string email UK
+        string passwordHash
+        string role
+        string phone
+        date createdAt
+    }
+    CUSTOMERS {
+        ObjectId _id PK
+        string fullName
+        string email
+        string phone
+        string address
+        string identityReference
+        date createdAt
+    }
+    VEHICLE_CATEGORIES {
+        ObjectId _id PK
+        string name
+        string description
+    }
+    VEHICLES {
+        ObjectId _id PK
+        string registrationNumber UK
+        string brand
+        string model
+        int year
+        string categoryId FK
+        number rentalRate
+        string availabilityStatus
+    }
+    RENTALS {
+        ObjectId _id PK
+        string customerId FK
+        string vehicleId FK
+        string staffId FK
+        date startDate
+        date expectedReturnDate
+        date actualReturnDate
+        number totalAmount
+        string rentalStatus
+    }
+    RETURNS {
+        ObjectId _id PK
+        string rentalId FK
+        date returnDate
+        string inspectionNotes
+        string vehicleCondition
+        number additionalCharges
+    }
+    PAYMENTS {
+        ObjectId _id PK
+        string rentalId FK
+        number amount
+        string paymentMethod
+        string paymentStatus
+        date paymentDate
+    }
